@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Pawel",
+      "location": "Chicago",
+      "review": "Donec pretium vulputate sapien necen sagittis aliquam hac habitass platea dictumst quisque sagit.",
+      "image": "https://i.ibb.co.com/nN24K32b/Screenshot-2025-02-13-234437.png"
+    },
+    {
+      "name": "Jasmine",
+      "location": "California",
+      "review": "Facilisis magna etiam tempor orci eu lobortis elementum nibh. Id donec ultricese tincidunt aru.",
+      "image": "https://i.ibb.co.com/nN24K32b/Screenshot-2025-02-13-234437.png"
+    },
+    {
+      "name": "Lola",
+      "location": "London",
+      "review": "Massa eget egestas purus viverra a in nisl nisi. Ut tortor pretium viverra suspendise potenti tempor orc ed.",
+      "image": "https://i.ibb.co.com/nN24K32b/Screenshot-2025-02-13-234437.png"
+    }
+  ]
+  
