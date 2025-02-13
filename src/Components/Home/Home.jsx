@@ -1,3 +1,4 @@
+import Carousel from "../Pages/Carousel/Carousel";
 import Navbar from "../Pages/Navbar/Navbar";
 import Navigate from "../Pages/Navigate/Navigate";
 
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Navbar />
             <Navigate />
+            <Carousel />
         </div>
     );
 };
