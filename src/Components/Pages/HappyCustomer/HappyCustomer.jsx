@@ -13,7 +13,7 @@ const HappyCustomer = () => {
     }, [])
 
     return (
-        <div className="my-20 bg-[#F7F3F0] h-screen">
+        <div className="mt-20 bg-[#F7F3F0] h-screen">
             <div className="pt-10">
                 <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/11/main-img-1.png" alt="" />
             </div>
