@@ -3,6 +3,7 @@ import Gallery from "../Pages/Gallery/Gallery";
 import HappyCustomer from "../Pages/HappyCustomer/HappyCustomer";
 import Navbar from "../Pages/Navbar/Navbar";
 import Navigate from "../Pages/Navigate/Navigate";
+import NewArrivals from "../Pages/NewArrivals/NewArrivals";
 import NewsLetter from "../Pages/NewsLetter/NewsLetter";
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <Carousel />
             <HappyCustomer />
             <NewsLetter />
+            <NewArrivals />
             <Gallery />
         </div>
     );
