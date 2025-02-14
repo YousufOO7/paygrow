@@ -33,15 +33,17 @@ const Gallery = () => {
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2 mt-12 px-16">
             {
                 galleryImg.map(img => (
-                    <div key={img.id}>
-                        <img src={img.image} alt="" />
+                    <div key={img.id} className="group">
+                        <img className="group-hover:scale-105 transition-transform duration-500 ease-linear" src={img.image} alt="" />
                     </div>
                 ))
             }
            </div>
 
-           <div className="ml-12 mt-5">
-            <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/11/main-img-27.png" alt="" />
+           <div className="ml-12 mt-5 ">
+            <img 
+            
+            src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/11/main-img-27.png" alt="" />
            </div>
 
         </div>

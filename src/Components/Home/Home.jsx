@@ -5,6 +5,7 @@ import Navbar from "../Pages/Navbar/Navbar";
 import Navigate from "../Pages/Navigate/Navigate";
 import NewArrivals from "../Pages/NewArrivals/NewArrivals";
 import NewsLetter from "../Pages/NewsLetter/NewsLetter";
+import ReadBlog from "../Pages/ReadBlog/ReadBlog";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <Navbar />
             <Navigate />
             <Carousel />
+            <ReadBlog />
             <HappyCustomer />
             <NewsLetter />
             <NewArrivals />
