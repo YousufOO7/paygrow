@@ -1,4 +1,5 @@
 import Carousel from "../Pages/Carousel/Carousel";
+import Gallery from "../Pages/Gallery/Gallery";
 import HappyCustomer from "../Pages/HappyCustomer/HappyCustomer";
 import Navbar from "../Pages/Navbar/Navbar";
 import Navigate from "../Pages/Navigate/Navigate";
@@ -12,6 +13,7 @@ const Home = () => {
             <Carousel />
             <HappyCustomer />
             <NewsLetter />
+            <Gallery />
         </div>
     );
 };

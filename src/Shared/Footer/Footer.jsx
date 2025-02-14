@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaPhone, FaPinterest, FaTwitter, FaVoicemail } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaPhone, FaPinterest, FaTwitter } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 
 const Footer = () => {
