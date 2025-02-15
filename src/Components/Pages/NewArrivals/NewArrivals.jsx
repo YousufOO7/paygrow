@@ -8,32 +8,48 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay } from 'swiper/modules';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const NewArrivals = () => {
+
+    const [cards, setCards] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/cards')
+            .then(res => {
+                setCards(res.data.slice(4, 8))
+            })
+    }, [])
+
     return (
         <div className="w-full bg-white my-20">
             <h2 className="text-3xl text-center uppercase">New Arrivals</h2>
             <p className="text-lg text-gray-500 text-center w-2/6 mx-auto my-3">Consectetur adipiscing elit ut aliquam duis convalli convalli tellus id interdum ve.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <div className="w-[252px] h-[362px] border-2 rounded-3xl group hover:border-dashed">
-                    <div className=" p-2">
-                        <img src="https://img.lovepik.com/photo/48030/9344.jpg_wh860.jpg" className="overflow-hidden" alt="" />
-                    </div>
-                    <div className="text-center mt-3">
-                        <p className="text-lg text-gray-500 uppercase">Carriage</p>
-                        <h3 className="text-xl">Baby Lether Carriage</h3>
-                        <p className="text-gray-500 mt-2 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:translate-y-2">
-                            $320.00
-                        </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-10">
+                {
+                    cards.map(card => (
+                        <div key={card._id} className="w-[252px] group h-[390px] border-2 rounded-3xl group hover:border-dashed">
+                            <div className="p-2 flex justify-center">
+                                <img src={card.image} className='h-[40vh] group-hover:scale-105 transition-transform duration-500 ease-linear' alt="" />
+                            </div>
+                            <div className="text-center mt-3">
+                                <p className="text-[12px] text-gray-500 uppercase">{card.tag}</p>
+                                <h3 className="text-xl">{card.name}</h3>
+                                <p className="text-gray-500 mt-2 transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:translate-y-2">
+                                    $ {card.price}.00
+                                </p>
 
-                        <p className="opacity-0 scale-90 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-5 text-[#DC9564]">
-                            Add to cart
-                        </p>
+                                <button className="opacity-0 scale-90 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-5 text-[#DC9564]">
+                                    Add to cart
+                                </button>
 
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
 
             <div className='my-20 max-w-6xl mx-auto'>
