@@ -8,19 +8,55 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Autoplay } from 'swiper/modules';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useQuery } from '@tanstack/react-query';
 
 const NewArrivals = () => {
 
-    const [cards, setCards] = useState([]);
+    // const [cards, setCards] = useState([]);
 
-    useEffect(() => {
-        axios.get('http://localhost:3000/cards')
-            .then(res => {
-                setCards(res.data.slice(4, 8))
-            })
-    }, [])
+    // useEffect(() => {
+    //     axios.get('http://localhost:3000/cards')
+    //         .then(res => {
+    //             setCards(res.data.slice(4, 8))
+    //         })
+    // }, [])
+
+    const {data: cards = [], refetch} = useQuery({
+        queryKey: ['cards'], 
+        queryFn: async () => {
+            const res = await axios.get('http://localhost:3000/cards')
+            return res.data.slice(4, 8)
+        }
+    })
+
+
+
+    // add to shop card
+    const handleAddToCard = async (card) => {
+        // console.log(card)
+
+        const carriage = {
+            image: card.image,
+            name: card.name,
+            tag: card.tag,
+            price: card.price,
+            cardId: card._id
+        }
+
+         await axios.post("http://localhost:3000/addCarriage", carriage)
+        .then(res => {
+            if(res.data.insertedId){
+                refetch();
+                toast.success("Item Add Successfully!")
+            }else if (res.data.modifiedCount > 0) {
+                refetch();
+                toast.success("Item Add Successfully!");
+            }
+        })
+    }
 
     return (
         <div className="w-full bg-white my-20">
@@ -31,7 +67,7 @@ const NewArrivals = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mt-10">
                 {
                     cards.map(card => (
-                        <div key={card._id} className="w-[252px] group h-[390px] border-2 rounded-3xl group hover:border-dashed">
+                        <div key={card._id} className="w-[252px] group  border-2 rounded-3xl group hover:border-dashed">
                             <div className="p-2 flex justify-center">
                                 <img src={card.image} className='h-[40vh] group-hover:scale-105 transition-transform duration-500 ease-linear' alt="" />
                             </div>
@@ -42,7 +78,7 @@ const NewArrivals = () => {
                                     $ {card.price}.00
                                 </p>
 
-                                <button className="opacity-0 scale-90 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-5 text-[#DC9564]">
+                                <button onClick={() => handleAddToCard(card)} className="opacity-0 scale-90 transition-all duration-700 ease-in-out group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-5 text-[#DC9564]">
                                     Add to cart
                                 </button>
 

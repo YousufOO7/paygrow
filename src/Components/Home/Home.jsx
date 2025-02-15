@@ -1,3 +1,4 @@
+import Baskets from "../Pages/Baskets/Baskets";
 import Carousel from "../Pages/Carousel/Carousel";
 import Gallery from "../Pages/Gallery/Gallery";
 import HappyCustomer from "../Pages/HappyCustomer/HappyCustomer";
@@ -13,6 +14,7 @@ const Home = () => {
             <Navbar />
             <Navigate />
             <Carousel />
+            <Baskets />
             <ReadBlog />
             <HappyCustomer />
             <NewsLetter />
