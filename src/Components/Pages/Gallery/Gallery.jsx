@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import TitleShared from "../../../Shared/TitleShared/TitleShared";
 
 
 const Gallery = () => {
@@ -14,7 +15,7 @@ const Gallery = () => {
     }, [])
 
     return (
-        <div className="w-full bg-[#F7F3F0] h-[860px]">
+        <div className="w-full bg-[#F7F3F0] h-full lg:h-[900px]">
             <div className="flex justify-between">
                 <div>
                     <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/11/main-img-22.png" alt="" className="mt-10 ml-5" />
@@ -26,15 +27,14 @@ const Gallery = () => {
             </div>
 
             <div className="-mt-20">
-                <h2 className="text-3xl font-semibold text-center my-5 uppercase">CHECK OUT OUR GALLERY</h2>
-                <p className="text-lg font-thin w-3/6 mx-auto">Iaculis nunc sed augue lacus viverra vitae congue. Vitae congue eu consequat ac.</p>
+                <TitleShared heading={"CHECK OUT OUR GALLERY"} subHeading={"Iaculis nunc sed augue lacus viverra vitae congue. Vitae congue eu consequat ac."} />
             </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-2 mt-12 px-16">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 px-8 gap-2 mt-12 md:px-16 lg:px-20">
             {
                 galleryImg.map(img => (
                     <div key={img.id} className="group">
-                        <img className="group-hover:scale-105 transition-transform duration-500 ease-linear" src={img.image} alt="" />
+                        <img className="group-hover:scale-105 w-full transition-transform duration-500 ease-linear" src={img.image} alt="" />
                     </div>
                 ))
             }

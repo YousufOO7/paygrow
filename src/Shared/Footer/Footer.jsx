@@ -3,8 +3,8 @@ import { MdOutlineMail } from "react-icons/md";
 
 const Footer = () => {
     return (
-        <div className="bg-white h-[70vh] p-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-16">
+        <div className="bg-white h-[70vh] mt-5 md:pt-10 lg:pt-0 lg:p-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-8 md:px-16">
                 <div>
                     <h3 className="text-xl uppercase">Company</h3>
                     <div className="space-y-2 mt-4">
@@ -66,16 +66,16 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between px-16 mt-28">
-                <div className="flex gap-6 items-center">
+            <div className="md:flex justify-between px-8 md:px-16 mt-28">
+                <div className="lg:flex gap-6 items-center">
                     <div>
-                        <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/12/footer-logo-img-1.png" className="w-36" alt="" />
+                        <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/12/footer-logo-img-1.png" className="w-36 mb-5 lg:mb-0" alt="" />
                     </div>
                     <p className="text-sm text-gray-500">© 2023 Qode Interactive, All Rights Reserved</p>
                 </div>
 
                 <div>
-                    <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/12/footer-img-1.png" className="w-60" alt="" />
+                    <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/12/footer-img-1.png" className="w-60 md:mt-14 lg:mt-0" alt="" />
                 </div>
             </div>
         </div>

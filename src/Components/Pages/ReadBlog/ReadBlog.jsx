@@ -6,8 +6,8 @@ const ReadBlog = () => {
         <div className="my-20">
             <TitleShared heading={"READ OUR BLOG"} subHeading={"Dignissim enim sit amet venenatis urna convallis ae nean et tortor etiam non qu."} />
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 max-w-6xl mx-auto my-10 gap-5">
-                <div className="w-[340px] group">
+            <div className="grid grid-cols-1 lg:grid-cols-3 max-w-6xl mx-auto my-10 gap-5 px-12 lg:px-0">
+                <div className="lg:w-[340px] group">
                     <div className="relative">
                         <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/12/b-m-l-img-1-768x595.jpg" className="group-hover:scale-105 transition-transform duration-700 ease-linear " alt="" />
                         <div className="w-16 h-16 rounded-md text-center p-1 bg-white absolute top-5 left-2">
@@ -22,7 +22,7 @@ const ReadBlog = () => {
                     <a href="" className="text-[#dc9564] my-3 uppercase">React more</a>
                 </div>
 
-                <div className="w-[340px] group">
+                <div className="lg:w-[340px] group">
                     <div className="relative">
                         <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/12/b-m-l-img-2-650x650.jpg" className="group-hover:scale-105 transition-transform duration-700 ease-linear" alt="" />
 
@@ -37,7 +37,7 @@ const ReadBlog = () => {
                     <a href="" className="text-[#dc9564] my-3 uppercase">React more</a>
                 </div>
 
-                <div className="w-[340px] group">
+                <div className="lg:w-[340px] group">
                     <div className="relative">
                         <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/12/b-m-l-img-3-768x499.jpg" className="group-hover:scale-105 transition-transform duration-700 ease-linear" alt="" />
 

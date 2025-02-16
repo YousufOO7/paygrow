@@ -15,7 +15,7 @@ const NewsLetter = () => {
         >
 
 
-            <div className="bg-white w-[440px] h-[440px] p-10 ml-40">
+            <div className="bg-white mx-auto md:w-[440px] h-[440px] p-10 md:ml-40">
                 <h2 className="text-center font-semibold text-2xl uppercase">NewsLetter</h2>
                 <p className="text-center font-thin text-lg mt-3">Risus viverra adipiscing at in tellus.</p>
 

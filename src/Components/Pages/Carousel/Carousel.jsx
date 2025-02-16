@@ -8,30 +8,46 @@ import 'swiper/css/navigation';
 
 
 // import required modules
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-
+import { Pagination, Navigation } from 'swiper/modules';
+import "aos/dist/aos.css";
+import Aos from 'aos';
 
 const Carousel = () => {
+
+    Aos.init({
+        duration: 1000,
+        once: false,
+    });
+
     return (
-        <div className='max-w-6xl mx-auto mb-20'>
+        <div className='max-w-6xl mx-auto mb-20 mt-5 md:mt-10 lg:mt-0 px-5 md:px-12 lg:px-0'>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
-                loop={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
+                // loop={true}
+                // autoplay={{
+                //     delay: 3000,
+                //     disableOnInteraction: false,
+                // }}
                 navigation={true}
-                modules={[Pagination, Navigation, Autoplay]}
+                modules={[Pagination, Navigation]}
                 className="mySwiper">
                 <SwiperSlide>
                     <div className='relative'>
-                        <div className='bg-red-600 absolute left-52 top-[30%] w-[200px] h-[200px]'></div>                       
-                            <img src="https://freerangestock.com/sample/145870/a-young-african-mother-raises-her-children-and-plays-with-them.jpg" className='w-full bg-cover h-[500px]' alt="" />                       
+                        {/* <div data-aos="fade-up" className='absolute top-[10%] '>
+                            <div className='overflow-hidden'>
+                                <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2023/01/MAINHOME-REV-FIGURE-SLIDE-2.png" className='relative overflow-hidden' alt="" />
+
+                               
+                                <h2 className='absolute top-[24vh] uppercase left-[16vh] text-3xl tracking-widest font-bold'>Your Happy Place</h2>
+                                <p className='absolute text-gray-500 top-[32vh] uppercase left-[8vh] text-sm w-5/6 mx-auto text-center'>sunt in culpa qui officia deserent mollit anim id est laborum</p>
+
+                                <a href="#" className='uppercase absolute text-[#DB9360] font-medium top-[44vh] left-[35vh] text-center'>Read More</a>
+
+                            </div>
+                        </div> */}
+
+                        <img src="https://freerangestock.com/sample/145870/a-young-african-mother-raises-her-children-and-plays-with-them.jpg" className='w-full bg-cover h-[500px]' alt="" />
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>

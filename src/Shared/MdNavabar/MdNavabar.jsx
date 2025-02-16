@@ -1,14 +1,31 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import Swal from "sweetalert2";
 
-const Navigate = () => {
+
+const MdNavabar = () => {
+
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const openDrawer = () => {
+        setIsDrawerOpen(true);
+    };
+
+    const closeDrawer = () => {
+        setIsDrawerOpen(false);
+    };
+
 
     const drawerRef = useRef(null);
 
-    const openDrawer = () => {
+    const openCardDrawer = () => {
+        if (drawerRef.current) {
+            drawerRef.current.checked = true;
+        }
+    };
+    const closeCardDrawer = () => {
         if (drawerRef.current) {
             drawerRef.current.checked = true;
         }
@@ -42,7 +59,7 @@ const Navigate = () => {
 
     // handle delete item from shopping card
     const handleDeleteItem = async (id) => {
-        console.log(id);
+        // console.log(id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -76,85 +93,102 @@ const Navigate = () => {
         });
     };
 
-
-
-    // if (isLoading || isPending) {
-    //     return <span>Loading...</span>;
-    // }
-
     return (
-        <div className="hidden lg:block">
-            <div className="flex justify-between px-32 py-20 items-center">
+        <div>
+            <div className="navbar bg-base-100 border-b px-5 md:px-12 py-3">
+                <div className="navbar-start">
+                    <a > <img src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/11/logo-img-1.png" alt="" className="w-28" /></a>
+                </div>
 
-                <a href="#" className="group">
-                    <div className="overflow-hidden">
-                        <img
-                            className="mb-2 transition-transform duration-500 ease-in-out group-hover:mt-[-4px]"
-                            src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/10/rainbow.png"
-                            alt=""
-                        />
-                    </div>
-                    <span className="uppercase ml-5">New In</span>
-                </a>
-                <a href="#" className="group">
-                    <div className="overflow-hidden">
-                        <img className="mb-2 transition-transform duration-500 ease-in-out group-hover:mt-[-4px]" src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/10/star.png" alt="" />
-                    </div>
-                    <span className="uppercase">About Us</span>
-                </a>
 
-                <a href="" className="group">
-                    <img className="w-48 transition-transform duration-500 ease-in-out group-hover:mt-[-4px]" src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/11/logo-img-1.png" alt="" />
-                </a>
 
-                <a href="#" className="group">
-                    <div className="overflow-hidden">
-                        <img className="mb-2 transition-transform duration-500 ease-in-out group-hover:mt-[-4px]" src="https://playgrow.qodeinteractive.com/wp-content/uploads/2022/10/hearth.png" alt="" />
-                    </div>
-                    <span className="uppercase">WishList</span>
-                </a>
+                <div className="navbar-end flex items-center">
 
-                <a className="group" onClick={openDrawer}>
-                    {isLoading || isPending ? (
-                        <span>Loading...</span>
-                    ) : (
-                        <div className="overflow-hidden relative">
-                            {totalCardCount > 0 && (
-                                <span className="right-0 absolute mr-6">{totalCardCount}</span>
+                    <div className="">
+                        <a className="flex items-center mr-5" onClick={openCardDrawer}>
+                            {isLoading || isPending ? (
+                                <span>Loading...</span>
+                            ) : (
+                                <div className="overflow-hidden relative">
+                                    {totalCardCount > 0 && (
+                                        <span className="right-0 absolute md:mr-6">{totalCardCount}</span>
+                                    )}
+
+                                    <img
+                                        className="mb-2 w-20 md:w-14"
+                                        src={
+                                            totalCardCount > 0
+                                                ? "https://playgrow.qodeinteractive.com/wp-content/plugins/playgrow-core/assets/img/cart-full-large.png"
+                                                : "https://playgrow.qodeinteractive.com/wp-content/plugins/playgrow-core/assets/img/cart-empty-large.png"
+                                        }
+                                        alt="Cart"
+                                    />
+                                </div>
                             )}
 
-                            <img
-                                className="mb-2 transition-transform duration-500 ease-in-out group-hover:mt-[-4px]"
-                                src={
-                                    totalCardCount > 0
-                                        ? "https://playgrow.qodeinteractive.com/wp-content/plugins/playgrow-core/assets/img/cart-full-large.png"
-                                        : "https://playgrow.qodeinteractive.com/wp-content/plugins/playgrow-core/assets/img/cart-empty-large.png"
-                                }
-                                alt="Cart"
-                            />
+                            {
+                                totalPrice > 0 ? 
+                                <div className="flex items-center"><span className="uppercase text-xs md:text-sm">Card </span> <span>${totalPrice}.00</span></div>
+                                : <div className="flex items-center gap-1">
+                                     <span className="uppercase text-xs md:text-sm">Card </span>
+                                     <span>$00.00</span>
+                                </div>
+                            }
+                        </a>
+                    </div>
+
+
+
+
+                    {/* drop down nav link */}
+                    <div className="relative z-[999]">
+                        {/* Trigger Button */}
+                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" onClick={openDrawer}>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
                         </div>
-                    )}
 
-                    {
-                        totalPrice > 0 ?
-                            <span className="uppercase text-sm">Card <span>${totalPrice}.00</span></span>
-                            : <span className="uppercase text-sm">Card <span>$00.00</span></span>
-                    }
-                </a>
+                        {/* Custom Top-to-Bottom Drawer */}
+                        <div
+                            className={`fixed top-0 left-0 w-full py-10 bg-white transition-transform duration-500 ease-in-out ${isDrawerOpen ? "translate-y-0" : "-translate-y-full"
+                                }`}
+                        >
+                            {/* Close Button */}
+                            <div className="flex justify-end p-4">
+                                <button onClick={closeDrawer} className="text-xl btn-outline hover:bg-white hover:text-black mr-10">
+                                    X
+                                </button>
+                            </div>
 
+                            {/* Sidebar Items */}
+                            <ul className="menu text-base-content p-4">
+                                <li><a>Sidebar Item 1</a></li>
+                                <li><a>Sidebar Item 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
+
+                {/* show side shopping card */}
             <div className="drawer drawer-end z-[999] bg-while">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" ref={drawerRef} />
                 {/* <div className="drawer-content">
-                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
-                </div> */}
+                                <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
+                            </div> */}
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-white text-base-content min-h-full w-[30vw]">
+                    <ul className="menu bg-white text-base-content min-h-full w-[50vw]">
                         <h2 className="text-3xl uppercase my-10 px-8">Shopping card</h2>
-                        <div className="h-[58vh]">
+                        <div className="h-[40vh]">
                             {
                                 shopCard.length > 0 ? shopCard.map(shop => (
                                     <div key={shop._id} className="flex justify-between px-5">
@@ -201,9 +235,8 @@ const Navigate = () => {
 
                 </div>
             </div>
-
         </div>
     );
 };
 
-export default Navigate;
+export default MdNavabar;
