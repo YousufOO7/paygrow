@@ -43,11 +43,11 @@ const NewArrivals = () => {
             if(res.data.insertedId){
                 refetch();
                 toast.success("Item Add Successfully!")
-                // window.location.reload();
+                window.location.reload();
             }else if (res.data.modifiedCount > 0) {
                 refetch();
                 toast.success("Item Add Successfully!");
-                // window.location.reload();
+                window.location.reload();
             }
         })
     }

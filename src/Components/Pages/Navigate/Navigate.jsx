@@ -13,7 +13,13 @@ const Navigate = () => {
             drawerRef.current.checked = true;
         }
     };
+    const closeDrawer = () => {
+        if (drawerRef.current) {
+            drawerRef.current.checked = false;
+        }
+    };
 
+    
 
     const { data: shopCard = [], refetch, isLoading, isPending } = useQuery({
         queryKey: ['shopCard'],
@@ -153,7 +159,10 @@ const Navigate = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-white text-base-content min-h-full w-[30vw]">
-                        <h2 className="text-3xl uppercase my-10 px-8">Shopping card</h2>
+                        <div className="flex justify-between items-center">
+                            <h2 className="text-3xl uppercase my-10 px-8">Shopping card</h2>
+                            <button onClick={closeDrawer} className="text-xl btn-outline hover:bg-white hover:text-black mr-5">X</button>
+                        </div>
                         <div className="h-[58vh]">
                             {
                                 shopCard.length > 0 ? shopCard.map(shop => (
@@ -176,14 +185,15 @@ const Navigate = () => {
                                         </div>
                                     </div>
                                 ))
-                                    : null
+                                    : <p className="text-gray-500 px-10">There no Product in is card</p>
                             }
 
                         </div>
 
 
 
-                        <div className="h-[24vh]">
+                        {
+                            shopCard.length > 0 ? <div className="h-[24vh]">
                             <div className="border-t-[1px]"></div>
                             <div className="flex justify-between items-center py-4 px-10">
                                 <p className="uppercase">Total :</p>
@@ -196,6 +206,9 @@ const Navigate = () => {
                                 <button className="px-8 text-[16px] py-5 bg-[#91C6BE] text-white uppercase">CheckOut</button>
                             </div>
                         </div>
+                        :
+                        null
+                        }
                     </ul>
 
 

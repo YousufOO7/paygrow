@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import { FaGreaterThan } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import Swal from "sweetalert2";
 
@@ -111,7 +112,7 @@ const MdNavabar = () => {
                             ) : (
                                 <div className="overflow-hidden relative">
                                     {totalCardCount > 0 && (
-                                        <span className="right-0 absolute md:mr-6">{totalCardCount}</span>
+                                        <span className="right-0 absolute text-xs md:mr-6">{totalCardCount}</span>
                                     )}
 
                                     <img
@@ -127,12 +128,12 @@ const MdNavabar = () => {
                             )}
 
                             {
-                                totalPrice > 0 ? 
-                                <div className="flex items-center"><span className="uppercase text-xs md:text-sm">Card </span> <span>${totalPrice}.00</span></div>
-                                : <div className="flex items-center gap-1">
-                                     <span className="uppercase text-xs md:text-sm">Card </span>
-                                     <span>$00.00</span>
-                                </div>
+                                totalPrice > 0 ?
+                                    <div className="flex items-center"><span className="uppercase text-xs md:text-sm">Card </span> <span>${totalPrice}.00</span></div>
+                                    : <div className="flex items-center gap-1">
+                                        <span className="uppercase text-xs md:text-sm">Card </span>
+                                        <span>$00.00</span>
+                                    </div>
                             }
                         </a>
                     </div>
@@ -167,9 +168,102 @@ const MdNavabar = () => {
                             </div>
 
                             {/* Sidebar Items */}
-                            <ul className="menu text-base-content p-4">
-                                <li><a>Sidebar Item 1</a></li>
-                                <li><a>Sidebar Item 2</a></li>
+                            <ul className="px-5 space-y-14 text-sm">
+                                <li className="relative group">
+                                    <a className="cursor-pointer">Home</a>
+
+                                    {/* Dropdown Menu */}
+                                    <ul className="absolute left-0 top-full pt-5 hidden group-hover:block bg-white shadow-md rounded-md w-40 z-50">
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Main Home</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Kids Store</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Baby Shop</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Shop Grid</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Landing</a></li>
+                                    </ul>
+                                </li>
+
+                                <li className="relative group">
+                                    <a className="cursor-pointer">PAGES</a>
+
+                                    {/* Dropdown Menu */}
+                                    <ul className="absolute left-0 top-full pt-5 hidden group-hover:block bg-white shadow-md rounded-md w-40 z-50">
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>About Us</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>FAQ Page</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Contact Us</a></li>
+                                    </ul>
+                                </li>
+
+                                <li className="relative group">
+                                    <a className="cursor-pointer">SHOP</a>
+
+                                    {/* Main Dropdown Menu */}
+                                    <ul className="absolute left-0 top-full pt-2 hidden group-hover:block bg-white shadow-md rounded-md w-40 z-50">
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Shop List</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Shop Single</a></li>
+
+                                        {/* Nested Dropdown Trigger */}
+                                        <li className="relative px-4 py-2 hover:bg-gray-100 group/submenu">
+                                            <div className="flex items-center gap-2">
+                                                <a className="cursor-pointer">Shop Layouts </a>
+                                                <span> <FaGreaterThan className="font-thin" /> </span>
+                                            </div>
+
+                                            {/* Nested Submenu */}
+                                            <ul className="absolute left-full top-0 hidden group-hover/submenu:block bg-white shadow-md rounded-md w-40 ">
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Three Columns</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Four Columns</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Five Columns</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Six Columns</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li className="relative px-4 py-2 hover:bg-gray-100 group/submenu">
+                                            <div className="flex items-center gap-2">
+                                                <a className="cursor-pointer">Shop Pages </a>
+                                                <span> <FaGreaterThan className="font-thin" /> </span>
+                                            </div>
+
+                                            {/* Nested Submenu */}
+                                            <ul className="absolute left-full top-0 hidden group-hover/submenu:block bg-white shadow-md rounded-md w-40 ">
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>My Account</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Wishlist</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Cart</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Checkout</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+
+                                <li className="relative group">
+                                    <a className="cursor-pointer">BLOG</a>
+
+                                    {/* Dropdown Menu */}
+                                    <ul className="absolute left-0 top-full pt-5 hidden group-hover:block bg-white shadow-md rounded-md w-40">
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Right Sidebar</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Left Sidebar</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>No Sidebar</a></li>
+                                        <li className="px-4 py-2 hover:bg-gray-100"><a>Masonry List</a></li>
+                                        <li className="relative px-4 py-2 hover:bg-gray-100 group/submenu">
+                                            <div className="flex items-center gap-2">
+                                                <a className="cursor-pointer">Post Types </a>
+                                                <span> <FaGreaterThan className="font-thin" /> </span>
+                                            </div>
+
+                                            {/* Nested Submenu */}
+                                            <ul className="absolute left-full top-0 hidden group-hover/submenu:block bg-white shadow-md rounded-md w-40  z-50">
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Standard Post</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>No Sidebar Post</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Gallery Post</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Audio Post</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Video Post</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Quote Post</a></li>
+                                                <li className="px-4 py-2 hover:bg-gray-100 hover:text-black"><a>Link Post</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -178,16 +272,16 @@ const MdNavabar = () => {
 
 
 
-                {/* show side shopping card */}
-            <div className="drawer drawer-end z-[999] bg-while">
+            {/* show side shopping card */}
+            <div className="drawer drawer-end z-[999] bg-white">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" ref={drawerRef} />
                 {/* <div className="drawer-content">
                                 <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary">Open drawer</label>
                             </div> */}
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-white text-base-content min-h-full w-[50vw]">
-                        <h2 className="text-3xl uppercase my-10 px-8">Shopping card</h2>
+                    <ul className="menu bg-white text-base-content min-h-full w-[70vw] md:w-[50vw]">
+                        <h2 className="text-xl md:text-3xl uppercase my-10 px-8">Shopping card</h2>
                         <div className="h-[40vh]">
                             {
                                 shopCard.length > 0 ? shopCard.map(shop => (
@@ -196,7 +290,7 @@ const MdNavabar = () => {
                                             <img src={shop.image} className="w-24 h-24 overflow-hidden -mt-3" alt="" />
 
                                             <div className="text ml-5">
-                                                <h2 className="text-[16px] font-semibold">{shop.name}</h2>
+                                                <h2 className="md:text-[16px] font-semibold">{shop.name}</h2>
                                                 {
                                                     shop.cardCount > 1 ? <p className="text-gray-500 my-2">{shop.cardCount} x <span>${`${shop.cardCount * shop.price}`}.00</span></p>
 
@@ -226,8 +320,8 @@ const MdNavabar = () => {
                             <div className="border-b-[1px]"></div>
 
                             <div className="flex mt-6 justify-evenly">
-                                <button className="px-8 text-[16px] py-5 bg-[#dc9564] text-white uppercase">View Cart</button>
-                                <button className="px-8 text-[16px] py-5 bg-[#91C6BE] text-white uppercase">CheckOut</button>
+                                <button className="px-5 py-3 md:px-8 md:text-[16px] md:py-5 bg-[#dc9564] text-white uppercase">View Cart</button>
+                                <button className="px-5 py-3 md:px-8 md:text-[16px] md:py-5 bg-[#91C6BE] text-white uppercase">CheckOut</button>
                             </div>
                         </div>
                     </ul>

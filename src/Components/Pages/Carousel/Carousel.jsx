@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 
 
 // import required modules
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import "aos/dist/aos.css";
 import Aos from 'aos';
 
@@ -24,13 +24,13 @@ const Carousel = () => {
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
-                // loop={true}
-                // autoplay={{
-                //     delay: 3000,
-                //     disableOnInteraction: false,
-                // }}
+                loop={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
                 navigation={true}
-                modules={[Pagination, Navigation]}
+                modules={[Pagination, Navigation, Autoplay]}
                 className="mySwiper">
                 <SwiperSlide>
                     <div className='relative'>
